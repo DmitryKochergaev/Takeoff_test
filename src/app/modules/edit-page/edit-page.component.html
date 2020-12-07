@@ -1,0 +1,45 @@
+<div *ngIf="loading; else table">
+  <h1>Loading...</h1>
+</div>
+
+<ng-template #table>
+  <div *ngIf="nothingPlaned">
+    <h1 class="no-plans">No plans yet...</h1>
+  </div>
+  <h1 class="month-name">{{day.day}} {{currentMonth}}</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-container">
+    <div formArrayName="plans"
+         *ngFor="let plan of form.controls.plans?.value; let i = index; trackBy:trackByFn">
+      <div [formGroupName]="i" class="group-container">
+
+        <mat-form-field class="mat-form-field">
+          <mat-label>Choose color</mat-label>
+          <mat-select formControlName="icon" [(value)]="plan.icon">
+            <mat-option value="plane">plane</mat-option>
+            <mat-option value="clock">clock</mat-option>
+            <mat-option value="bus">bus</mat-option>
+            <mat-option value="meeting">meeting</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="mat-form-field">
+          <mat-label>Header</mat-label>
+          <input matInput placeholder="header" formControlName="header" [value]="plan.header">
+        </mat-form-field>
+
+        <mat-form-field class="mat-form-field">
+          <mat-label>Main text</mat-label>
+          <input matInput placeholder="text" formControlName="text" [value]="plan.text">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <mat-icon class="add-btn" svgIcon="add" aria-hidden="false" aria-label="add" (click)="onAddPlan()">
+      </mat-icon>
+      <button mat-raised-button color="primary" type="submit" class="form-btn">submit</button>
+      <button mat-raised-button color="warn" (click)="onCancel()" type="button">Cancel</button>
+    </div>
+  </form>
+</ng-template>
