@@ -1,55 +1,36 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {MonthsApi} from '../http/months-api';
-import {IDay, IMonth, IPlan} from '../../shared/interfaces/IMonth';
-import {filter, map, switchMap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {IContact} from '../../shared/interfaces/IContact';
+import {switchMap} from 'rxjs/operators';
+import {ContactsApi} from '../http/contacts-api';
 
 @Injectable({providedIn: 'root'})
 
-export class MonthsService {
+export class ContactsService {
 
-  private _currentMonthName: BehaviorSubject<string>;
-  private _currentMonth: Subject<string>;
-
-  constructor(private _monthsApi: MonthsApi) {
-    this._currentMonthName = new BehaviorSubject<string>('january');
-    this._currentMonth = new Subject<string>();
+  constructor(private _contactsApi: ContactsApi) {
   }
 
-  setCurrentMonthName(month: string): void {
-    this._currentMonthName.next(month);
+  getContacts(): Observable<IContact[]> {
+    return this._contactsApi.getContacts();
   }
 
-  getCurrentMonthName(): Observable<string> {
-    return this._currentMonthName.asObservable();
+  deleteById(id: string): Observable<any> {
+    return this._contactsApi.deleteById(id);
   }
 
-  getMonths(): Observable<IMonth[]> {
-    return this._monthsApi.getMonths();
-  }
-
-  clearPlans(month: IMonth): Observable<any> {
-    return this._monthsApi.updatePlans(month);
-  }
-
-  getDayOfMonth(monthName: string, day: number): Observable<IDay> {
-    return this._monthsApi.getMonths()
+  addContact(contactData: IContact): Observable<any> {
+    return this._contactsApi.getContacts()
       .pipe(
-        map(value => {
-          return value.filter(month => month.name === monthName).pop().days[day];
+        switchMap(contacts => {
+          return this._contactsApi.addContact(
+            {
+              ...contactData,
+              id: contacts.reduce((max, min) => max > min ? max : min).id + 1
+            }
+          );
+
         })
       );
   }
-
-  updatePlans(monthName: string, day: IDay, plans: IPlan[]): Observable<any> {
-    return this._monthsApi.getMonths()
-      .pipe(
-        switchMap(months => {
-          const month = months.filter(val => val.name === monthName).pop();
-          month.days[day.day - 1].plans = plans;
-          return this._monthsApi.updatePlans(month);
-        })
-      );
-  }
-
 }

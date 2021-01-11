@@ -15,9 +15,4 @@ export class UserApi {
   getUsers(): Observable<IUser[]> {
     return this._http.get<IUser[]>(this._userUrl);
   }
-
-  updateUser(user: IUser): Observable<any> {
-    return this._http.patch(`${this._userUrl}/${user.id}`, user);
-  }
-
 }

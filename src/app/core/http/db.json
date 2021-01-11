@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "userName": "test",
-      "password": "test",
+      "userName": "1",
+      "password": "1",
       "id": 1
     },
     {
@@ -11,358 +11,31 @@
       "id": 2
     }
   ],
-  "months": [
+  "contacts": [
     {
-      "name": "january",
-      "id": 1,
-      "days": [
-        {
-          "day": 1,
-          "plans": [
-            {
-              "icon": "bus",
-              "header": "header",
-              "text": "text"
-            },
-            {
-              "icon": "clock",
-              "header": "header2",
-              "text": "text2"
-            },
-            {
-              "icon": "plane",
-              "header": "2",
-              "text": "3"
-            },
-            {
-              "icon": "plane",
-              "header": "test",
-              "text": "test"
-            },
-            {
-              "icon": "clock",
-              "header": "test last",
-              "text": "test last"
-            }
-          ]
-        },
-        {
-          "day": 2,
-          "plans": [
-            {
-              "icon": "plane",
-              "header": "test 2 chage plane",
-              "text": "test 2 chage plane"
-            }
-          ]
-        },
-        {
-          "day": 3,
-          "plans": null
-        },
-        {
-          "day": 4,
-          "plans": null
-        },
-        {
-          "day": 5,
-          "plans": null
-        },
-        {
-          "day": 6
-        },
-        {
-          "day": 7
-        },
-        {
-          "day": 8
-        },
-        {
-          "day": 9
-        },
-        {
-          "day": 10
-        },
-        {
-          "day": 11
-        },
-        {
-          "day": 12,
-          "plans": null
-        },
-        {
-          "day": 13
-        },
-        {
-          "day": 14
-        },
-        {
-          "day": 15
-        },
-        {
-          "day": 16
-        },
-        {
-          "day": 17
-        },
-        {
-          "day": 18
-        },
-        {
-          "day": 19
-        },
-        {
-          "day": 20
-        },
-        {
-          "day": 21
-        },
-        {
-          "day": 22
-        },
-        {
-          "day": 23
-        },
-        {
-          "day": 24
-        },
-        {
-          "day": 25
-        },
-        {
-          "day": 26
-        },
-        {
-          "day": 27
-        },
-        {
-          "day": 28
-        },
-        {
-          "day": 29
-        },
-        {
-          "day": 30
-        }
-      ]
+      "name": "alex",
+      "phone": "123-456-789",
+      "id": 1
     },
     {
-      "name": "february",
-      "id": 2,
-      "days": [
-        {
-          "day": 1
-        },
-        {
-          "day": 2,
-          "plans": [
-            {
-              "icon": "plane",
-              "header": "header",
-              "text": "text"
-            }
-          ]
-        },
-        {
-          "day": 3
-        },
-        {
-          "day": 4
-        },
-        {
-          "day": 5,
-          "plans": [
-            {
-              "icon": "clock",
-              "header": "header",
-              "text": "text"
-            },
-            {
-              "icon": "bus",
-              "header": "header",
-              "text": "text"
-            }
-          ]
-        },
-        {
-          "day": 6
-        },
-        {
-          "day": 7
-        },
-        {
-          "day": 8
-        },
-        {
-          "day": 9
-        },
-        {
-          "day": 10
-        },
-        {
-          "day": 11
-        },
-        {
-          "day": 12
-        },
-        {
-          "day": 13
-        },
-        {
-          "day": 14
-        },
-        {
-          "day": 15
-        },
-        {
-          "day": 16
-        },
-        {
-          "day": 17
-        },
-        {
-          "day": 18
-        },
-        {
-          "day": 19
-        },
-        {
-          "day": 20
-        },
-        {
-          "day": 21
-        },
-        {
-          "day": 22
-        },
-        {
-          "day": 23
-        },
-        {
-          "day": 24
-        },
-        {
-          "day": 25
-        },
-        {
-          "day": 26
-        },
-        {
-          "day": 27
-        },
-        {
-          "day": 28
-        },
-        {
-          "day": 29
-        },
-        {
-          "day": 30
-        }
-      ]
+      "name": "stew",
+      "phone": "222-222-333",
+      "id": 2
     },
     {
-      "name": "march",
-      "id": 3,
-      "days": [
-        {
-          "day": 1
-        },
-        {
-          "day": 2,
-          "plans": [
-            {
-              "icon": "bus",
-              "header": "2 test",
-              "text": "2 test"
-            }
-          ]
-        },
-        {
-          "day": 3
-        },
-        {
-          "day": 4
-        },
-        {
-          "day": 5
-        },
-        {
-          "day": 6
-        },
-        {
-          "day": 7
-        },
-        {
-          "day": 8
-        },
-        {
-          "day": 9
-        },
-        {
-          "day": 10
-        },
-        {
-          "day": 11
-        },
-        {
-          "day": 12
-        },
-        {
-          "day": 13
-        },
-        {
-          "day": 14
-        },
-        {
-          "day": 15
-        },
-        {
-          "day": 16
-        },
-        {
-          "day": 17
-        },
-        {
-          "day": 18
-        },
-        {
-          "day": 19
-        },
-        {
-          "day": 20
-        },
-        {
-          "day": 21
-        },
-        {
-          "day": 22
-        },
-        {
-          "day": 23
-        },
-        {
-          "day": 24
-        },
-        {
-          "day": 25
-        },
-        {
-          "day": 26
-        },
-        {
-          "day": 27
-        },
-        {
-          "day": 28
-        },
-        {
-          "day": 29
-        },
-        {
-          "day": 30
-        }
-      ]
+      "name": "forsen",
+      "phone": "111-456-789",
+      "id": 3
+    },
+    {
+      "name": "voodosh",
+      "phone": "123-456-777",
+      "id": 4
+    },
+    {
+      "name": "test",
+      "phone": "12333333",
+      "id": 5
     }
   ]
 }

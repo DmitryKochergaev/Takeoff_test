@@ -1,27 +1,32 @@
-<form [formGroup]="form" class="card">
-  <h1>Auth</h1>
+<div>
+  <form [formGroup]="form" class="card">
+    <h1>TakeOff test</h1>
 
-  <mat-form-field class="mat-form">
-    <mat-label>User name</mat-label>
-    <input matInput placeholder="Source text" formControlName="userName">
-  </mat-form-field>
+    <mat-form-field class="mat-form">
+      <mat-label>User name</mat-label>
+      <div class="form-input">
+        <input matInput placeholder="Source text" formControlName="userName" class="userName">
+      </div>
+    </mat-form-field>
 
-  <mat-form-field class="mat-form">
-    <mat-label>Enter your password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password">
-    <button mat-icon-button matSuffix (mousedown)="hide = !hide" (mouseup)="hide = !hide"
-            [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
+    <mat-form-field class="mat-form">
+      <mat-label>Enter your password</mat-label>
+      <div class="form-input">
+        <input matInput type="password" class="password" placeholder="Password" formControlName="password">
+      </div>
+    </mat-form-field>
 
-  <div>
-    <button mat-raised-button color="primary" class="form-btn"
-            [disabled]="form.invalid || form.untouched"
-            (click)="onAuthClick()">
-      Sign-in
-    </button>
-  </div>
+    <div *ngIf="userNotFound" class="validation">
+      <p>Sorry authorization was failed. Please check input values and try again</p>
+    </div>
 
-</form>
+    <div class="form-btn">
+      <button mat-raised-button color="primary"
+              class="sign-in"
+              [disabled]="form.invalid || form.untouched"
+              (click)="onAuthClick()">
+        Sign-in
+      </button>
+    </div>
+  </form>
+</div>

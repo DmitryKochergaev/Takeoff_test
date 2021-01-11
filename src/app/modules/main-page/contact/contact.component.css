@@ -1,0 +1,24 @@
+.card {
+  width: 500px;
+  height: 150px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin-top: 25px;
+}
+
+.card button {
+  height: 35px;
+  margin-top: 20px;
+  margin-right: 20px;
+  float: right;
+}
+
+.card p {
+  margin-right: 20px;
+}
+
+.card-data {
+  display: flex;
+  flex-direction: row;
+}

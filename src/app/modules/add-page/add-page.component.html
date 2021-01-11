@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="form" class="card">
+    <h1>Add contact</h1>
+
+    <mat-form-field class="mat-form">
+      <mat-label>Contact name</mat-label>
+      <div class="form-input">
+        <input matInput placeholder="Contact name" formControlName="name" class="userName">
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="mat-form">
+      <mat-label>Contact phone</mat-label>
+      <div class="form-input">
+        <input matInput placeholder="Contact phone" formControlName="phone">
+      </div>
+    </mat-form-field>
+
+    <div class="form-btn">
+      <button mat-raised-button color="primary" (click)="onAdd()">
+        Add contact
+      </button>
+    </div>
+  </form>
+</div>

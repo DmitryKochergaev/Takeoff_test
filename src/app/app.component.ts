@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {IconsService} from './core/services/icons.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,6 @@ import {IconsService} from './core/services/icons.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private _iconService: IconsService) {
+  constructor() {
   }
 }

@@ -1,11 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../core/services/user.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {AuthService} from '../../core/services/auth.service';
 import {Router} from '@angular/router';
 import {ROUTE} from '../../shared/routes/routes';
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -13,16 +12,14 @@ import {ROUTE} from '../../shared/routes/routes';
   styleUrls: ['./auth-page.component.css']
 })
 export class AuthPageComponent implements OnInit, OnDestroy {
-
   form: FormGroup;
-  hide: boolean;
+  userNotFound: boolean;
   private _notifier: Subject<any>;
 
-  constructor(private _userService: UserService,
-              private _router: Router,
-              private _authService: AuthService) {
+  constructor(private _authService: AuthService,
+              private _router: Router) {
     this._notifier = new Subject();
-    this.hide = true;
+    this.userNotFound = false;
   }
 
   ngOnInit(): void {
@@ -34,18 +31,15 @@ export class AuthPageComponent implements OnInit, OnDestroy {
 
   onAuthClick(): void {
     if (this.form.valid) {
-      this._userService.getUsers()
+      this._authService.authUser(this.form.value)
         .pipe(
           takeUntil(this._notifier)
         )
-        .subscribe({
-          next: value => {
-            value.forEach(user => {
-              if (user.userName === this.form.value.userName && user.password === this.form.value.password) {
-                this._router.navigate([ROUTE.main]);
-                this._authService.login(user);
-              }
-            });
+        .subscribe(value => {
+          if (value) {
+            this._router.navigate([ROUTE.main]);
+          } else {
+            this.userNotFound = true;
           }
         });
     }
